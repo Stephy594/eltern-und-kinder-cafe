@@ -1,0 +1,353 @@
+.story-page-title {
+  position: relative;
+  min-height: 380px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+}
+
+.story-page-title-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 247, 240, 0.58);
+}
+
+.story-title-row {
+  min-height: 380px;
+  position: relative;
+  z-index: 2;
+}
+
+.story-main-title {
+  font-family: var(--heading-font);
+  font-size: clamp(42px, 6vw, 74px);
+  font-weight: 700;
+  color: #2b2b2b;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+}
+
+.story-sub-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #2e1103;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.story-sub-title span {
+  width: 8px;
+  height: 2px;
+  background: #312c2a;
+  display: inline-block;
+}
+
+.story-hero-section {
+  padding-top: 0;
+  margin-top: -30px;
+}
+
+.story-hero-image {
+  width: 100%;
+  border-radius: 16px;
+  display: block;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.12);
+}
+
+.story-hero-overlay-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 0 20px;
+}
+
+.story-hero-word {
+  font-size: clamp(58px, 10vw, 150px);
+ font-family: var(--heading-font);
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.story-video-button {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+  transition: transform 0.3s ease;
+}
+
+.story-video-button:hover {
+  transform: scale(1.06);
+}
+
+.story-video-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #2b2b2b;
+  font-size: 28px;
+  position: relative;
+}
+
+.story-video-icon::after {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  animation: storyPulse 1.8s infinite;
+}
+
+@keyframes storyPulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.9;
+  }
+  70% {
+    transform: scale(1.12);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+.story-intro-section {
+  padding: 80px 0 40px;
+  background: #f9f7f2;
+}
+
+.story-small-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #c96a3d;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+}
+
+.story-small-label span {
+  width: 5px;
+  height: 2px;
+  background: #c96a3d;
+  display: inline-block;
+}
+
+.story-intro-text {
+  font-family: var(--heading-font);
+  color: #2b2b2b;
+  line-height: 1.5;
+  margin-bottom: 0;
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 400;
+}
+
+.story-gallery-section {
+  padding: 40px 0 80px;
+  background: #f9f7f2;
+  overflow: hidden;
+  position: relative;
+}
+
+.story-gallery-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 42%;
+  height: 2px;
+  background: #d59c3a;
+  z-index: 0;
+}
+
+.story-gallery-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  align-items: center;
+}
+
+.story-gallery-item {
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  background: #fff;
+}
+
+.story-gallery-item img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+}
+
+.story-achievements-section {
+  padding: 90px 0;
+  overflow: hidden;
+}
+
+.story-achievements-title {
+  font-family: var(--heading-font);
+  font-weight: 400;
+  color: #2b2b2b;
+  font-size: clamp(32px, 4vw, 48px);
+}
+
+.story-achievement-grid {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-left: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.story-achievement-card {
+  height: 100%;
+  text-align: center;
+  background: #fff;
+  padding: 40px 24px;
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.story-achievement-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.08);
+}
+
+.story-achievement-image {
+  margin-bottom: 20px;
+}
+
+.story-achievement-image img {
+  max-width: 100px;
+  height: auto;
+}
+
+.story-achievement-content span {
+  display: block;
+  color: #2b2b2b;
+  line-height: 1.6;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.story-visitor-text {
+  color: #2b2b2b;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.story-visitor-text span {
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+@media (max-width: 991px) {
+  .story-hero-overlay-content {
+    gap: 14px;
+  }
+
+  .story-video-button {
+    width: 85px;
+    height: 85px;
+  }
+
+  .story-video-icon {
+    width: 58px;
+    height: 58px;
+    font-size: 24px;
+  }
+
+  .story-gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .story-page-title,
+  .story-title-row {
+    min-height: 280px;
+  }
+
+  .story-main-title {
+    font-size: 38px;
+  }
+
+  .story-hero-overlay-content {
+    gap: 10px;
+  }
+
+  .story-hero-word {
+    font-size: 54px;
+  }
+
+  .story-video-button {
+    width: 70px;
+    height: 70px;
+  }
+
+  .story-video-icon {
+    width: 46px;
+    height: 46px;
+    font-size: 18px;
+  }
+
+  .story-intro-section {
+    padding: 60px 0 30px;
+  }
+
+  .story-gallery-section {
+    padding: 30px 0 60px;
+  }
+
+  .story-gallery-line {
+    display: none;
+  }
+
+  .story-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .story-gallery-item img {
+    height: 180px;
+  }
+
+  .story-achievements-section {
+    padding: 60px 0;
+  }
+
+  .story-achievement-content span {
+    width: 100%;
+  }
+
+  .story-visitor-text {
+    font-size: 17px;
+  }
+}

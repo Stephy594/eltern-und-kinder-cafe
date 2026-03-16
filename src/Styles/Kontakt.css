@@ -1,0 +1,273 @@
+.kt-page-title {
+  position: relative;
+  /* min-height: 200px; */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  padding: 80px 0 40px;
+}
+
+.kt-page-title-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 247, 240, 0.58);
+}
+
+.kt-title-row {
+  min-height: 380px;
+  position: relative;
+  z-index: 2;
+}
+
+.kt-main-title {
+  font-family: var(--heading-font);
+  font-size: clamp(42px, 6vw, 74px);
+  font-weight: 700;
+  color: #2b2b2b;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+}
+
+.kt-sub-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #c96a3d;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.kt-sub-title span {
+  width: 8px;
+  height: 2px;
+  background: #c96a3d;
+  display: inline-block;
+}
+
+.kt-contact-main {
+  padding-top: 20px;
+  padding-bottom: 70px;
+}
+
+.kt-map-wrap {
+  background-position: right top;
+  background-repeat: no-repeat;
+  padding-right: 0;
+  margin-top: -40px;
+}
+
+.kt-map-box {
+  width: 100%;
+  height: 450px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.1);
+  background: #fff;
+}
+
+.kt-big-text {
+  display: block;
+  font-size: clamp(68px, 10vw, 140px);
+  font-weight: 700;
+  color: #ece8e1;
+  letter-spacing: -6px;
+  text-align: left;
+  line-height: 1;
+  margin-top: 40px;
+}
+
+.kt-form-col {
+  position: relative;
+  margin-top: -80px;
+}
+
+.kt-form-card {
+  background: #f9f7f2;
+  padding: 48px;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+}
+
+.kt-form-bg-icon {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 110px;
+  color: rgba(201, 106, 61, 0.18);
+}
+
+.kt-form-title {
+  font-family: var(--heading-font);
+  color: #2b2b2b;
+  margin-bottom: 18px;
+  position: relative;
+  z-index: 2;
+}
+
+.kt-form {
+  position: relative;
+  z-index: 2;
+}
+
+.kt-form-group {
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.kt-form-icon {
+  position: absolute;
+  left: 0;
+  top: 15px;
+  color: #8f8f8f;
+  font-size: 18px;
+}
+
+.kt-input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+  background: transparent;
+  padding: 12px 0 12px 34px;
+  font-size: 15px;
+  color: #2b2b2b;
+  outline: none;
+}
+
+.kt-input::placeholder {
+  color: #8d8d8d;
+}
+
+.kt-textarea {
+  resize: none;
+}
+
+.kt-submit-btn {
+  margin-top: 24px;
+  border: none;
+  background: #2b2b2b;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-weight: 600;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.12);
+  transition: all 0.3s ease;
+}
+
+.kt-submit-btn:hover {
+  transform: translateY(-3px);
+}
+
+.kt-contact-info-section {
+  padding-top: 0;
+  padding-bottom: 80px;
+}
+
+.kt-small-label {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  color: #c96a3d;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.kt-info-heading {
+  font-family: var(--heading-font);
+  font-weight: 400;
+  color: #2b2b2b;
+  margin-bottom: 0;
+  width: 85%;
+  line-height: 1.35;
+}
+
+.kt-info-heading span {
+  text-decoration: underline;
+}
+
+.kt-info-box {
+  padding: 8px 10px;
+}
+
+.kt-info-title {
+  display: block;
+  font-size: 26px;
+  font-family: var(--heading-font);
+  color: #2b2b2b;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.kt-info-content,
+.kt-info-content a {
+  color: #555;
+  text-decoration: none;
+  line-height: 1.8;
+}
+
+.kt-address-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+  color: #555;
+}
+
+.kt-inline-icon {
+  color: #c96a3d;
+}
+
+@media (max-width: 991px) {
+  .kt-form-col {
+    margin-top: 20px;
+  }
+
+  .kt-big-text {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+
+  .kt-info-heading {
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .kt-page-title,
+  .kt-title-row {
+    min-height: 280px;
+  }
+
+  .kt-main-title {
+    font-size: 38px;
+  }
+
+  .kt-map-box {
+    height: 350px;
+  }
+
+  .kt-form-card {
+    padding: 28px 22px;
+  }
+
+  .kt-big-text {
+    font-size: 72px;
+    letter-spacing: -3px;
+  }
+
+  .kt-contact-main,
+  .kt-contact-info-section {
+    padding-bottom: 55px;
+  }
+}
+.contact-btn-wrapper {
+  margin-top: 30px;
+  text-align: center;
+}
