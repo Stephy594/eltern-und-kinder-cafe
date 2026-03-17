@@ -10,6 +10,8 @@ import {
   FiMapPin,
 } from "react-icons/fi";
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 function Kontakt() {
   const [formData, setFormData] = useState({
     name: "",
@@ -51,10 +53,15 @@ function Kontakt() {
       return;
     }
 
+    if (!API_BASE_URL) {
+      setErrorMessage("API-URL ist nicht konfiguriert.");
+      return;
+    }
+
     try {
       setLoading(true);
 
-      const response = await fetch("https://localhost:44306/api/Reservation/contact", {
+      const response = await fetch(`${API_BASE_URL}/Reservation/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -66,10 +73,20 @@ function Kontakt() {
         }),
       });
 
-      const result = await response.json();
+      let result = {};
+      const contentType = response.headers.get("content-type");
+
+      if (contentType && contentType.includes("application/json")) {
+        result = await response.json();
+      } else {
+        const text = await response.text();
+        result = { message: text };
+      }
 
       if (!response.ok) {
-        throw new Error(result.message || "Nachricht konnte nicht gesendet werden.");
+        throw new Error(
+          result.message || "Nachricht konnte nicht gesendet werden."
+        );
       }
 
       setSuccessMessage("Ihre Nachricht wurde erfolgreich gesendet.");
@@ -189,7 +206,11 @@ function Kontakt() {
                       ></textarea>
                     </div>
 
-                    <button type="submit" className="kt-submit-btn" disabled={loading}>
+                    <button
+                      type="submit"
+                      className="kt-submit-btn"
+                      disabled={loading}
+                    >
                       {loading ? "Wird gesendet..." : "Nachricht senden"}
                     </button>
 
