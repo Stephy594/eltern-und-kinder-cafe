@@ -9,8 +9,7 @@ import {
   FiUser,
   FiMapPin,
 } from "react-icons/fi";
-console.log("API_BASE_URL:", API_BASE_URL);
-console.log("FINAL URL:", `${API_BASE_URL}/api/Reservation/contact`);
+
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 function Kontakt() {
