@@ -10,7 +10,7 @@ import {
   FiMapPin,
 } from "react-icons/fi";
 
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+const API_BASE_URL = process.env.REACT_APP_API_URL;
 
 function Kontakt() {
   const [formData, setFormData] = useState({
