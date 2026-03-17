@@ -47,9 +47,7 @@ function ReservationForm() {
     try {
       const formattedDate = formatDateToKey(selectedDate);
 
-      // const response = await fetch(
-      //   `https://localhost:44306/api/reservation/available-times?date=${formattedDate}`
-      // );
+       
       const response = await fetch(
         `${API_BASE_URL}/api/reservation/available-times?date=${formattedDate}`
       );
@@ -107,11 +105,7 @@ function ReservationForm() {
     }
 
     try {
-      // const response = await fetch(
-      //   `https://localhost:44306/api/reservation/available?startTime=${encodeURIComponent(
-      //     startDate.toISOString()
-      //   )}`
-      // );
+      
       const response = await fetch(
         `${API_BASE_URL}/reservation/available?startTime=${encodeURIComponent(
           startDate.toISOString()
@@ -156,13 +150,7 @@ function ReservationForm() {
     };
 
     try {
-      // const response = await fetch("https://localhost:44306/api/reservation/reserve", {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json"
-      //   },
-      //   body: JSON.stringify(requestBody)
-      // });
+       
       const response = await fetch(`${API_BASE_URL}/api/reservation/reserve`, {
         method: "POST",
         headers: {
