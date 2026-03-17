@@ -51,7 +51,7 @@ function ReservationForm() {
       //   `https://localhost:44306/api/reservation/available-times?date=${formattedDate}`
       // );
       const response = await fetch(
-        `${API_BASE_URL}/reservation/available-times?date=${formattedDate}`
+        `${API_BASE_URL}/api/reservation/available-times?date=${formattedDate}`
       );
       
       if (!response.ok) {
@@ -163,7 +163,7 @@ function ReservationForm() {
       //   },
       //   body: JSON.stringify(requestBody)
       // });
-      const response = await fetch(`${API_BASE_URL}/reservation/reserve`, {
+      const response = await fetch(`${API_BASE_URL}/api/reservation/reserve`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

@@ -61,7 +61,7 @@ function Kontakt() {
     try {
       setLoading(true);
 
-      const response = await fetch(`${API_BASE_URL}/Reservation/contact`, {
+      const response = await fetch(`${API_BASE_URL}/api/Reservation/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
