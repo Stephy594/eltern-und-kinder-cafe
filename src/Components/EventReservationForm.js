@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 function EventReservationForm() {
   const [formData, setFormData] = useState({
     name: "",
@@ -28,8 +28,9 @@ function EventReservationForm() {
 
     try {
       setLoading(true);
+      
+      const response = await fetch(`${API_BASE_URL}/Reservation/event`, {
 
-      const response = await fetch("https://localhost:44306/api/reservation/event", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

@@ -3,6 +3,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Select from "react-select";
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 function ReservationForm() {
   const [formData, setFormData] = useState({
     name: "",
@@ -29,7 +30,7 @@ function ReservationForm() {
 
   const fetchAvailableDates = async () => {
     try {
-      const response = await fetch("https://localhost:44306/api/reservation/available-dates");
+      const response = await fetch(`${API_BASE_URL}/reservation/available-dates`);
 
       if (!response.ok) {
         throw new Error("Failed to fetch available dates");
@@ -46,10 +47,13 @@ function ReservationForm() {
     try {
       const formattedDate = formatDateToKey(selectedDate);
 
+      // const response = await fetch(
+      //   `https://localhost:44306/api/reservation/available-times?date=${formattedDate}`
+      // );
       const response = await fetch(
-        `https://localhost:44306/api/reservation/available-times?date=${formattedDate}`
+        `${API_BASE_URL}/reservation/available-times?date=${formattedDate}`
       );
-
+      
       if (!response.ok) {
         throw new Error("Failed to fetch available times");
       }
@@ -103,8 +107,13 @@ function ReservationForm() {
     }
 
     try {
+      // const response = await fetch(
+      //   `https://localhost:44306/api/reservation/available?startTime=${encodeURIComponent(
+      //     startDate.toISOString()
+      //   )}`
+      // );
       const response = await fetch(
-        `https://localhost:44306/api/reservation/available?startTime=${encodeURIComponent(
+        `${API_BASE_URL}/reservation/available?startTime=${encodeURIComponent(
           startDate.toISOString()
         )}`
       );
@@ -147,7 +156,14 @@ function ReservationForm() {
     };
 
     try {
-      const response = await fetch("https://localhost:44306/api/reservation/reserve", {
+      // const response = await fetch("https://localhost:44306/api/reservation/reserve", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json"
+      //   },
+      //   body: JSON.stringify(requestBody)
+      // });
+      const response = await fetch(`${API_BASE_URL}/reservation/reserve`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
