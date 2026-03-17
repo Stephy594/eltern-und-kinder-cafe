@@ -3,12 +3,7 @@ import Layout from "../Components/Layout";
 import "../Styles/Kontakt.css";
 import ReservationTabs from "../Components/ReservationTabs";
 import "../Styles/ReservationTabs.css";
-import {
-  FiMail,
-  FiMessageSquare,
-  FiUser,
-  FiMapPin,
-} from "react-icons/fi";
+import { FiMail, FiMessageSquare, FiUser, FiMapPin } from "react-icons/fi";
 
 const API_BASE_URL = process.env.REACT_APP_API_URL;
 
@@ -30,6 +25,10 @@ function Kontakt() {
       ...prev,
       [name]: value,
     }));
+
+    // Clear messages while user edits again
+    if (successMessage) setSuccessMessage("");
+    if (errorMessage) setErrorMessage("");
   };
 
   const handleSubmit = async (e) => {
@@ -38,17 +37,21 @@ function Kontakt() {
     setSuccessMessage("");
     setErrorMessage("");
 
-    if (!formData.name.trim()) {
+    const trimmedName = formData.name.trim();
+    const trimmedEmail = formData.email.trim();
+    const trimmedMessage = formData.message.trim();
+
+    if (!trimmedName) {
       setErrorMessage("Bitte geben Sie Ihren Namen ein.");
       return;
     }
 
-    if (!formData.email.trim()) {
+    if (!trimmedEmail) {
       setErrorMessage("Bitte geben Sie Ihre E-Mail-Adresse ein.");
       return;
     }
 
-    if (!formData.message.trim()) {
+    if (!trimmedMessage) {
       setErrorMessage("Bitte geben Sie Ihre Nachricht ein.");
       return;
     }
@@ -67,13 +70,13 @@ function Kontakt() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
+          name: trimmedName,
+          email: trimmedEmail,
+          message: trimmedMessage,
         }),
       });
 
-      let result = {};
+      let result = null;
       const contentType = response.headers.get("content-type");
 
       if (contentType && contentType.includes("application/json")) {
@@ -85,17 +88,23 @@ function Kontakt() {
 
       if (!response.ok) {
         throw new Error(
-          result.message || "Nachricht konnte nicht gesendet werden."
+          result?.message || "Nachricht konnte nicht gesendet werden."
         );
       }
 
-      setSuccessMessage("Ihre Nachricht wurde erfolgreich gesendet.");
+      setSuccessMessage(
+        result?.message || "Ihre Nachricht wurde erfolgreich gesendet."
+      );
+      setErrorMessage("");
+
       setFormData({
         name: "",
         email: "",
         message: "",
       });
     } catch (error) {
+      console.error("Contact form error:", error);
+      setSuccessMessage("");
       setErrorMessage(
         error.message || "Beim Senden ist ein Fehler aufgetreten."
       );
@@ -198,7 +207,7 @@ function Kontakt() {
                       </span>
                       <textarea
                         name="message"
-                        placeholder="Ihre Nachricht"
+                        placeholder="Ihre Nachricht*"
                         rows="4"
                         className="kt-input kt-textarea"
                         value={formData.message}
@@ -252,7 +261,9 @@ function Kontakt() {
           <div className="container">
             <div className="row align-items-center">
               <div className="col-lg-4 mb-4 mb-lg-0 text-center text-md-start">
-                <span className="kt-small-label">Sie brauchen einen privaten Raum?</span>
+                <span className="kt-small-label">
+                  Sie brauchen einen privaten Raum?
+                </span>
                 <h3 className="kt-info-heading">
                   Einen Tisch reservieren? <span>Lass uns reden.</span>
                 </h3>
